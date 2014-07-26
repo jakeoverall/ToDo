@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="todo">
+<head>
+    <title>Angular ToDo</title>
+    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/site.css" rel="stylesheet" />
+</head>
+<body ng-controller="mainCtrl">
+    <div class="container">
+        <div class="container">
+            <h2>Todo List</h2>
+
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <input class="form-control" placeholder="Add Item" ng-model="newTask" />
+                    <button class="btn btn-primary" ng-click="addTask()"><i class="glyphicon glyphicon-plus"></i></button>
+                </span>
+            </div>
+
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="task in todos">
+                    {{task.name}} - {{task.date | date}} <button class="btn btn-danger btn-xs pull-right" ng-click="removeTask($index)">
+                        <i class="glyphicon glyphicon-remove"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="//www.parsecdn.com/js/parse-1.2.19.min.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/parseHeaders.js"></script>
+    <script src="js/parseService.js"></script>
+    <script src="js/mainCtrl.js"></script>
+</body>
+</html>
